@@ -22,7 +22,8 @@ export default ({
   ],
   server: {
     hmr: { overlay: true },
-    port: "8000",
+    port: "80",
+    host: "0.0.0.0"
   },
   optimizeDeps: {
     exclude: ["oh-vue-icons/icons"]

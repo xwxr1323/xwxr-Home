@@ -2,8 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 
 export const index = defineStore('index', () => {
-    
-console.log(import.meta.env.VITE_BgUrl)
+    // bgURL
     let num = ref(Math.floor(Math.random() * 10 + 1))
     let bgURL = computed(() => {
         return `/images/background${num.value}.webp`
@@ -22,5 +21,16 @@ console.log(import.meta.env.VITE_BgUrl)
             num.value--;
         }
     }
-    return { bgURL, pre_bg, next_bg }
+    // 页面宽度
+    let innerWidth = ref(null)
+    let NavState = ref(null)
+    function setInnerWidth(value) {
+            innerWidth.value = value;
+            if (value >= 1020) {
+                NavState.value = true;
+            } else {
+                NavState.value = false;
+            }
+        }
+    return { bgURL, pre_bg, next_bg, innerWidth, NavState, setInnerWidth }
 })

@@ -2,6 +2,44 @@ html {
     font-size: 1vw
 }
 .focusInfo_reactive {
+    top: 45vh;
+    left: 50vw;
     height: 15rem;
     width: 36rem;
+    transition: all .5s ease;
+}
+
+.center-text_reactive {
+    font-size: 2.9rem;
+    transition: all .5s ease;
+}
+
+.lyricSentence_reactive {
+    padding-top: 1.05rem;
+    margin-top: 0.68rem;
+    transition: all .5s ease;
+}
+
+.sentence_reactive {
+    font-size: 1.09rem;
+    width: 45%;
+    transition: all .5s ease;
+}
+.sentence_p_reactive{
+    margin-top: 1.36rem;
+    font-size: 1.36rem;
+    transition: all .5s ease;
+}
+
+.top-social_reactive{
+    margin-top: 2.05rem;
+    margin-left: 0.68rem;
+    transition: all .5s ease;
+}
+.top-social_reactive img {
+    border-radius: 1.025rem;
+    height: 2.733rem;
+    width: 2.733rem;
+    padding: 0.615rem;
+    transition: all .5s ease;
 }

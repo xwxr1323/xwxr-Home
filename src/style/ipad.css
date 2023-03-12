@@ -1,4 +1,45 @@
+html {
+    font-size: 2vw
+}
 .focusInfo_reactive {
-    height: 20px;
-    width: 30px;
+    top: 45vh;
+    left: 50vw;
+    height: 15rem;
+    width: 30rem;
+    transition: all .5s ease;
+}
+
+.center-text_reactive {
+    font-size: 3rem;
+    transition: all .5s ease;
+}
+.lyricSentence_reactive {
+    padding-top: 1.05rem;
+    margin-top: 1rem;
+    transition: all .5s ease;
+}
+
+.sentence_reactive {
+    font-size: 1.3rem;
+    width: 66%;
+    transition: all .5s ease;
+}
+.sentence_p_reactive {
+    margin-top: .5rem;
+    font-size: 1.2rem;
+    transition: all .5s ease;
+}
+
+.top-social_reactive {
+    margin-top: 1.2rem;
+    margin-left: .8rem;
+    transition: all .5s ease;
+}
+
+.top-social_reactive img {
+    border-radius: .8rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: .56rem;
+    transition: all .5s ease;
 }

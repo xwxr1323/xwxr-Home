@@ -6,10 +6,10 @@ const indexStore = index()
 
 <template>
     <div style="text-align: center;">
-        <h1 class="center-text">Xwxr Home</h1>
-        <div class="lyricSentence">
+        <h1 class="center-text center-text_reactive">Xwxr Home</h1>
+        <div class="lyricSentence lyricSentence_reactive">
             <v-icon name="fa-quote-left" scale="0.8" animation="wrench" speed='slow'/>
-            <div class="sentence" >
+            <div class="sentence sentence_reactive" >
                 <VueTyper
                 class="vue-typer"
                 text='给时光以生命，给岁月以文明' 
@@ -20,9 +20,9 @@ const indexStore = index()
                 ></VueTyper>
             </div>
             <v-icon name="fa-quote-right" scale="0.8" animation="wrench" speed="slow"/>
-            <p class="sentence-p, reactive_p">夜已深,不久之后就是黎明</p>
+            <p class="sentence-p sentence_p_reactive">夜已深,不久之后就是黎明</p>
         </div>
-        <div class="top-social">
+        <div class="top-social top-social_reactive">
             <ul>
                 <li @click="indexStore.pre_bg">
                     <img src="@/assets/images/pre.png" alt="上一篇">
@@ -64,13 +64,10 @@ const indexStore = index()
     .center-text {
         text-align: center;
         cursor:default;
-        font-size: 2.9rem;
         color: #fff;
         font-family: 'Zhiyong-Elegant';
     }
     .lyricSentence {
-        padding-top: 1.05rem;
-        margin-top: 0.68rem;
         height: 40%;
         width: 100%;
         text-align: center;
@@ -80,17 +77,11 @@ const indexStore = index()
     }
     .sentence {
         display: inline-block;
-        font-size: 1.09rem;
-        width: 45%;
-    }
-    .vue-typer {
-        color: #565454;
+        
     }
     .sentence-p {
         cursor:default;
         font-family: 'hljt';
-        margin-top: 1.36rem;
-        font-size: 1.36rem;
         transition: all 1s ease-in-out;
     }
     .sentence-p:hover {
@@ -98,21 +89,13 @@ const indexStore = index()
     }
     .top-social {
         display: inline-block;
-        width: 350px;
-        height: 32px;
-        margin-top: 30px;
-        margin-left: 10px;
     }
     .top-social li {
         float: left;
-        margin-right: 10px;
+        margin-right: 0.69rem;
     }
     .top-social img {
         cursor: pointer;
-        height: 40px;
-        width: 40px;
-        padding: 9px;
-        border-radius: 15px;
         background: rgba(255, 255, 255, 0.5);
         backdrop-filter: blur(10px);
     }

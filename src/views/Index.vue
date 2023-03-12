@@ -23,8 +23,6 @@ import MainInfo from '@/components/MainInfo.vue'
     }
     .focusInfo {
         position: absolute;
-        top: 45vh;
-        left: 50vw;
         transform: translate3d(-50%, -50%, 0);;
     }
 </style>

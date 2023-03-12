@@ -1,6 +1,6 @@
 <template>
     <!-- 导航栏 -->
-    <header>
+    <header v-show="indexStore.NavState">
         <!-- logo -->
         <el-avatar 
         :size="40" 
@@ -71,12 +71,17 @@
             </li>
         </ul>
     </header>
+    <!-- 移动端 -->
+    <div v-show="!indexStore.NavState" class="header">123</div>
 </template>
 
 
 <script setup>
 import { ref, onMounted } from 'vue';
 import { RouterLink, useRouter } from 'vue-router';
+import { index } from '@/store/index'
+// storeIndex
+const indexStore = index()
 // 路由器
 const router = useRouter()
 // logo
@@ -108,11 +113,22 @@ function UserMeg() {
         path: '/login'
     })
 }
-
+// 监视页面宽度
+const getWidth = () => {
+    indexStore.setInnerWidth(window.innerWidth);
+};
+getWidth();
+window.addEventListener("resize", getWidth);
 </script>
 
 
 <style lang="css" scoped>
+    .header {
+        width: 100%;
+        height: 75px;
+        background-color: rgba(255, 255, 255, 1);
+        transition: all 1s ease;
+    }
     header {
         margin: 20px auto;
         height: 75px;
