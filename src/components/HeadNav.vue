@@ -72,7 +72,68 @@
         </ul>
     </header>
     <!-- 移动端 -->
-    <div v-show="!indexStore.NavState" class="header">123</div>
+    <div v-show="!indexStore.NavState" class="header">
+    <v-icon name="hi-menu" scale="2" class="mobile-menu" @click="showPopup"/>
+    <el-avatar 
+        :size="40" 
+        :src="circleUrl"
+        @click = "GotoIndex"
+        class = 'mobile-logo'
+        />
+    </div>
+    <van-popup
+      v-model:show="showLeft"
+      position="left"
+      :style="{ width: '45%', height: '100%' }"
+      lock-scroll="true"
+    >
+        <div style="height: 20%;width: 100%; display: flex;align-items: center;justify-content: center;">
+            <el-avatar 
+                :size="100" 
+                :src="circleUrl"
+                
+                />
+        </div>
+        <ul class="mobile-nav">
+            <li>
+                <RouterLink to="/start" class="mobile-link">
+                    <el-icon ><Odometer/></el-icon>
+                    <span>起始页</span>
+                </RouterLink>
+            </li>
+            <li>
+                <RouterLink to="/todo" class="mobile-link">
+                    <el-icon><List /></el-icon>
+                    <span>SomeToDo</span>
+                </RouterLink>
+            </li>
+            <li>
+                <RouterLink to="/chat" class="mobile-link">
+                    <el-icon><ChatDotRound /></el-icon>
+                    <span>闲言碎语</span>
+                </RouterLink>
+            </li>
+            <li>
+                <RouterLink to="/article" class="mobile-link">
+                    <el-icon><Reading /></el-icon>
+                    <span>抚今追昔</span>
+                </RouterLink>
+            </li>
+            <li>
+                <RouterLink to="/messageBoard" class="mobile-link">
+                    <el-icon><Iphone /></el-icon>
+                    <span>留个言叭</span>
+                </RouterLink>
+            </li>
+            <li>
+                <RouterLink to="" class="mobile-link">
+                    <el-icon><Position /></el-icon>
+                    <span>还没想好</span>
+                </RouterLink>
+            </li>
+        </ul>
+        <div class="bear"></div>
+    </van-popup>
 </template>
 
 
@@ -119,16 +180,79 @@ const getWidth = () => {
 };
 getWidth();
 window.addEventListener("resize", getWidth);
+// 弹出盒子
+let showLeft = ref(false);
+const showPopup = () => {
+    showLeft.value = true;
+};
 </script>
 
 
 <style lang="css" scoped>
+    @keyframes bear_run {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: -1600px 0;
+      }
+    }
+    /* 移动端 */
+    .bear {
+      position: absolute;
+      top:70rem;
+      left:-1rem;
+      width: 200px;
+      height: 100px;
+      background: url("/src/assets/images/bear.png") no-repeat;
+      animation: bear_run .7s steps(8) infinite;
+
+    }
+    .mobile-link {
+        display: block;
+        height: 100%;
+        width: 100%;
+        color: #000;
+        font-size: 2.5rem;
+        display: flex;
+        align-items: center;
+        /* center代表水平方向 */
+        justify-content: center;
+
+    }
+    .mobile-link:hover {
+        color: rgb(113, 238, 178);
+        background-color: #a29f9f;
+    }
+    .mobile-nav{
+        position: relative;
+        height: 60%;
+        width: 100%;
+    }
+    .mobile-nav li {
+        height: 13%;
+        margin-top: 2rem;
+        /* background-color: black; */
+        width: 100%;
+
+
+    }
+    .mobile-logo {
+        float: right;
+        margin: 3rem;
+    }
+    .mobile-menu {
+        float: left;
+        margin: 3rem;
+        color:#9c8e8e;
+    }
     .header {
         width: 100%;
-        height: 75px;
-        background-color: rgba(255, 255, 255, 1);
+        height: 10rem;
+        /* background-color: rgba(255, 255, 255, 1); */
         transition: all 1s ease;
     }
+    /* pc端 */
     header {
         margin: 20px auto;
         height: 75px;

@@ -9,15 +9,19 @@ import 'animate.css'
 import VueTyper from 'vue3-typer'
 import "vue3-typer/dist/vue-typer.css"
 import { OhVueIcon, addIcons } from "oh-vue-icons";
-import { FaQuoteLeft, FaQuoteRight  } from "oh-vue-icons/icons";
+import { FaQuoteLeft, FaQuoteRight, HiMenu } from "oh-vue-icons/icons";
+addIcons(FaQuoteLeft, FaQuoteRight, HiMenu);
 import '@/font/font_style.css'
 import { createPinia } from 'pinia'
+import { Popup } from 'vant';
+// 2. 引入组件样式
+import 'vant/lib/index.css';
 
-addIcons(FaQuoteLeft, FaQuoteRight);
+
 const pinia = createPinia();
 const app = createApp(App);
 
-
+app.use(Popup);
 app.use(pinia)
 app.component("v-icon", OhVueIcon);
 app.use(VueTyper)
