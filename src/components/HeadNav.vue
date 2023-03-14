@@ -142,7 +142,7 @@ import { index } from '@/store/index'
 // storeIndex
 const indexStore = index()
 // logo
-let circleUrl = ref('/public/images/pic.png')
+let circleUrl = ref('/images/pic.png')
 function GotoIndex() {
         window.location.replace('/')
 }
@@ -360,7 +360,7 @@ const showPopup = () => {
     .register{
         position: absolute;
         top: 75px;
-        left:-1px;
+        left:-10px;
         height: 80px;
         width: 80px;
         text-align: center;
@@ -397,7 +397,7 @@ const showPopup = () => {
         position: absolute;
         display: block;
         top: -19px;
-        left: 49px;
+        left: 32px;
         border:10px solid rgba(255, 255, 255, 0);
         border-bottom-color:rgb(255, 255, 255, 1);
         

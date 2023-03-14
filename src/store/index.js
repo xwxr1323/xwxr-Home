@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 
 export const index = defineStore('index', () => {
     // bgURL
-    let num = ref(Math.floor(Math.random() * 10 + 1))
+    let num = ref(Math.floor(Math.random() * 9 + 1))
     let bgURL = computed(() => {
         return `/images/background${num.value}.webp`
     })
@@ -33,6 +33,6 @@ export const index = defineStore('index', () => {
             }
     }
     // 用户头像
-    let avatar = ref('/public/images/topavatar.png')
+    let avatar = ref('/images/topavatar.png')
     return { bgURL, pre_bg, next_bg, innerWidth, NavState, setInnerWidth, avatar }
 })
