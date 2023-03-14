@@ -8,7 +8,7 @@ export const index = defineStore('index', () => {
         return `/images/background${num.value}.webp`
     })
     function next_bg() {
-        if (num.value === 10) {
+        if (num.value === 9) {
             num.value = 1
         } else {
             num.value++
@@ -16,7 +16,7 @@ export const index = defineStore('index', () => {
     }
     function pre_bg() {
         if (num.value === 1) {
-            num.value = 10
+            num.value = 9
         } else {
             num.value--;
         }
@@ -31,6 +31,8 @@ export const index = defineStore('index', () => {
             } else {
                 NavState.value = false;
             }
-        }
-    return { bgURL, pre_bg, next_bg, innerWidth, NavState, setInnerWidth }
+    }
+    // 用户头像
+    let avatar = ref('/public/images/topavatar.png')
+    return { bgURL, pre_bg, next_bg, innerWidth, NavState, setInnerWidth, avatar }
 })

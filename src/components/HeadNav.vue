@@ -10,7 +10,6 @@
         />
         <!-- 登录和搜索 -->
         <div class="HeadUserAvatar" >
-            <el-icon size="25" class="Search"><Search /></el-icon>
             <div @mouseleave="blankOption">
                 <a href="javascript:;" @mouseenter="showOption" @click="UserMeg">
                     <img :src="UserAvatarUrl">
@@ -34,40 +33,40 @@
         <!-- 导航栏 -->
         <ul class="nav">
             <li>
-                <RouterLink to="/start">
-                    <el-icon class="animate_hover"><Odometer/></el-icon>
+                <a href="/start">
+                    <v-icon name="md-pageview-round" class="animate_hover" scale="1.2"/>
                     <span>起始页</span>
-                </RouterLink>
+                </a>
             </li>
             <li>
-                <RouterLink to="/todo">
-                    <el-icon class="animate_hover" ><List /></el-icon>
+                <a href="/todo">
+                    <v-icon name="hi-clipboard-list" class="animate_hover" scale="1.1"/>
                     <span>SomeToDo</span>
-                </RouterLink>
+                </a>
             </li>
             <li>
-                <RouterLink to="/chat">
-                    <el-icon class="animate_hover"><ChatDotRound /></el-icon>
+                <a href="/chat">
+                    <v-icon name="io-chatbubble-ellipses-sharp" class="animate_hover"/>
                     <span>闲言碎语</span>
-                </RouterLink>
+                </a>
             </li>
             <li>
-                <RouterLink to="/article">
-                    <el-icon class="animate_hover"><Reading /></el-icon>
+                <a href="/article">
+                    <v-icon name="hi-book-open" class="animate_hover" scale="1.1"/>
                     <span>抚今追昔</span>
-                </RouterLink>
+                </a>
             </li>
             <li>
-                <RouterLink to="/messageBoard">
-                    <el-icon class="animate_hover"><Iphone /></el-icon>
+                <a href="/messageBoard">
+                    <v-icon name="bi-envelope-heart-fill" class="animate_hover" scale="1.1"/>
                     <span>留个言叭</span>
-                </RouterLink>
+                </a>
             </li>
             <li>
-                <RouterLink to="">
-                    <el-icon class="animate_hover"><Position /></el-icon>
-                    <span>还没想好</span>
-                </RouterLink>
+                <a href="/about">
+                    <v-icon name="bi-send-fill" class="animate_hover" scale="1.1"/>
+                    <span>关于我</span>
+                </a>
             </li>
         </ul>
     </header>
@@ -96,40 +95,40 @@
         </div>
         <ul class="mobile-nav">
             <li>
-                <RouterLink to="/start" class="mobile-link">
-                    <el-icon ><Odometer/></el-icon>
+                <a href="/start" class="mobile-link">
+                    <v-icon name="md-pageview-round" class="animate_hover" scale="1.2"/>
                     <span>起始页</span>
-                </RouterLink>
+                </a>
             </li>
             <li>
-                <RouterLink to="/todo" class="mobile-link">
-                    <el-icon><List /></el-icon>
+                <a href="/todo" class="mobile-link">
+                    <v-icon name="hi-clipboard-list" class="animate_hover" scale="1.1"/>
                     <span>SomeToDo</span>
-                </RouterLink>
+                </a>
             </li>
             <li>
-                <RouterLink to="/chat" class="mobile-link">
-                    <el-icon><ChatDotRound /></el-icon>
+                <a href="/chat" class="mobile-link">
+                   <v-icon name="io-chatbubble-ellipses-sharp"/>
                     <span>闲言碎语</span>
-                </RouterLink>
+                </a>
             </li>
             <li>
-                <RouterLink to="/article" class="mobile-link">
-                    <el-icon><Reading /></el-icon>
+                <a href="/article" class="mobile-link">
+                    <v-icon name="hi-book-open" class="animate_hover" scale="1.1"/>
                     <span>抚今追昔</span>
-                </RouterLink>
+                </a>
             </li>
             <li>
-                <RouterLink to="/messageBoard" class="mobile-link">
-                    <el-icon><Iphone /></el-icon>
+                <a href="/messageBoard" class="mobile-link">
+                    <v-icon name="bi-envelope-heart-fill" class="animate_hover" scale="1.1"/>
                     <span>留个言叭</span>
-                </RouterLink>
+                </a>
             </li>
             <li>
-                <RouterLink to="" class="mobile-link">
-                    <el-icon><Position /></el-icon>
-                    <span>还没想好</span>
-                </RouterLink>
+                <a href="/about" class="mobile-link">
+                    <v-icon name="bi-send-fill" class="animate_hover" scale="1.1"/>
+                    <span>关于我</span>
+                </a>
             </li>
         </ul>
         <div class="bear"></div>
@@ -139,19 +138,16 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { RouterLink, useRouter } from 'vue-router';
 import { index } from '@/store/index'
 // storeIndex
 const indexStore = index()
-// 路由器
-const router = useRouter()
 // logo
 let circleUrl = ref('/public/images/pic.png')
 function GotoIndex() {
         window.location.replace('/')
 }
 // 用户头像
-let UserAvatarUrl = ref('/public/images/topavatar.png')
+let UserAvatarUrl = indexStore.avatar
 let displayRegisterOption = ref(false)
 function showOption() {
     displayRegisterOption.value = true
@@ -160,19 +156,13 @@ function blankOption() {
     displayRegisterOption.value = false
 }
 function login() {
-    router.push({
-        path:'/login'
-    })
+    window.location.href = '/login';
 }
 function register() {
-    router.push({
-        path: '/login/register'
-    })
+    window.location.href = '/register';
 }
 function UserMeg() {
-    router.push({
-        path: '/login'
-    })
+    window.location.href = '/login';
 }
 // 监视页面宽度
 const getWidth = () => {

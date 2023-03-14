@@ -1,7 +1,9 @@
 <script setup>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import { index } from '@/store/index.js'
 const indexStore = index()
+let sentence = ref(import.meta.env.VITE_sentence)
+let sentence_p = ref(import.meta.env.VITE_sentence_p)
 </script>
 
 <template>
@@ -12,7 +14,7 @@ const indexStore = index()
             <div class="sentence sentence_reactive" >
                 <VueTyper
                 class="vue-typer"
-                text='给时光以生命，给岁月以文明' 
+                :text='sentence' 
                 type-delay='200' 
                 erase-style='backspace'
                 caret-animation='expand'
@@ -20,7 +22,7 @@ const indexStore = index()
                 ></VueTyper>
             </div>
             <v-icon name="fa-quote-right" scale="0.8" animation="wrench" speed="slow"/>
-            <p class="sentence-p sentence_p_reactive">夜已深,不久之后就是黎明</p>
+            <p class="sentence-p sentence_p_reactive">{{ sentence_p }}</p>
         </div>
         <div class="top-social top-social_reactive">
             <ul>
