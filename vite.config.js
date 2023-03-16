@@ -11,6 +11,7 @@ import { createHtmlPlugin } from "vite-plugin-html";
 export default ({
   mode
 }) => defineConfig({
+  base: '/index',
   plugins: [
     vue(),
     AutoImport({
@@ -44,6 +45,13 @@ export default ({
     },]
   },
   build: {
+    rollupOptions: {
+      output: {
+        chunkFileNames: 'static/js/[name]-[hash].js',
+        entryFileNames: 'static/js/[name]-[hash].js',
+        assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+      }
+    },
     minify: 'terser', // 必须启用：terserOptions配置才会有效
     terserOptions: {
       compress: {

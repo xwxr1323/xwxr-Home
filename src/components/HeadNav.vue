@@ -8,7 +8,7 @@
         @click = "GotoIndex"
         class = 'logo'
         />
-        <!-- 登录和搜索 -->
+        <!-- 登录 -->
         <div class="HeadUserAvatar" >
             <div @mouseleave="blankOption">
                 <a href="javascript:;" @mouseenter="showOption" @click="UserMeg">
@@ -53,7 +53,7 @@
             <li>
                 <a href="/article">
                     <v-icon name="hi-book-open" class="animate_hover" scale="1.1"/>
-                    <span>抚今追昔</span>
+                    <span>Some Blog</span>
                 </a>
             </li>
             <li>
@@ -90,7 +90,6 @@
             <el-avatar 
                 :size="100" 
                 :src="circleUrl"
-                
                 />
         </div>
         <ul class="mobile-nav">
@@ -115,7 +114,7 @@
             <li>
                 <a href="/article" class="mobile-link">
                     <v-icon name="hi-book-open" class="animate_hover" scale="1.1"/>
-                    <span>抚今追昔</span>
+                    <span>Some Blog</span>
                 </a>
             </li>
             <li>
